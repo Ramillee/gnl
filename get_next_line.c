@@ -6,7 +6,7 @@
 /*   By: atweek <atweek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 17:44:39 by atweek            #+#    #+#             */
-/*   Updated: 2020/12/25 19:22:23 by atweek           ###   ########.fr       */
+/*   Updated: 2020/12/27 19:32:27 by atweek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,8 @@ static int	read_buf(int fd, char **str, char **line)
 {
 	int		rs;
 	int		index;
-	int		i;
 	char	*str_read;
 
-	i = 0;
 	index = 0;
 	if (!*str)
 	{
@@ -94,6 +92,7 @@ static int	cut_end(char **line, char **static_str, int flag)
 	}
 	return (clean_before_out(*static_str, NULL, 0));
 }
+
 int			get_next_line(int fd, char **line)
 {
 	int				flag;
@@ -111,12 +110,10 @@ int			get_next_line(int fd, char **line)
 			static_str = gnl_substr(static_str, index,
 						ft_strlen(static_str), 1);
 		}
-		else
-		if ((flag = read_buf(fd,&static_str,line)) == -1 || (flag == 0))
-			return(cut_end(line, &static_str, flag));
+		else if ((flag = read_buf(fd, &static_str, line)) == -1 || (flag == 0))
+			return (cut_end(line, &static_str, flag));
 	}
-	else
-		if (((flag = read_buf(fd,&static_str,line)) == -1) || (flag == 0))
-			return(cut_end(line, &static_str, flag));
+	else if (((flag = read_buf(fd, &static_str, line)) == -1) || (flag == 0))
+		return (cut_end(line, &static_str, flag));
 	return (1);
 }

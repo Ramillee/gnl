@@ -6,7 +6,7 @@
 /*   By: atweek <atweek@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 17:44:55 by atweek            #+#    #+#             */
-/*   Updated: 2020/12/25 19:22:19 by atweek           ###   ########.fr       */
+/*   Updated: 2020/12/27 19:32:25 by atweek           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char	*gnl_strjoin(char *s1, char const *s2)
 		return (NULL);
 }
 
-char	*gnl_substr(char  *s, unsigned int start, size_t len, int flag)
+char	*gnl_substr(char *s, unsigned int start, size_t len, int flag)
 {
 	size_t	j;
 	char	*dst;
